@@ -55,15 +55,18 @@ var foo;
 
 // CODE HERE...
 
+// let $q = $q((resolve, reject)) => {
+//   if(true){
+//     resolve('succses')
+//   } else {
+//     reject('error')
+//   }
+// }
+
 function promiseMe($q){
-  // setTimeout(() => foo = 'bar', 20);
-  return $q((resolve, reject) => {
-    if(foo = 'bar'){
-      resolve(foo)
-    } else {
-      reject('No')
-    }
-  })
+  return new Promise(function(resolve, reject){
+    setTimeout(function(){resolve(foo = 'bar')}, 20)
+  });
 }
 
 // *************
@@ -80,13 +83,13 @@ function promiseMe($q){
 
 // CODE HERE...
 
-function emailList($q, $http){
-  let emailList = []
-  return $q((resolve, reject) => {
-    if($http('/api/users').then(response => emailList = response.data)){
-      resolve('Success')
-    } else {
-      reject('No')
-    }
-  })
-}
+// function emailList($q, $http){
+//   let emailList = []
+//   return $q((resolve, reject) => {
+//     if($http('/api/users').then(response => emailList = response.data)){
+//       resolve('Success')
+//     } else {
+//       reject('No')
+//     }
+//   })
+// }
